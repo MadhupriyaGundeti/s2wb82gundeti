@@ -1,9 +1,15 @@
 extends layout
 block content
-  h1= title
-  -let results=[{soup_name:"Tomato",soup_size:"small",price:4.56},{soup_name:"Corn",soup_size:"medium",price:6.72},{soup_name:"Chicken",soup_size:"large",price:9.92}]
-  div(class="container-fluid")
-  div(class="row")
-    -
-    each item in results 
-        div(class="col-sm-2") #{item.soup_name} #{item.soup_size} #{item.price}
+    h1= title
+    -let results=[{soup_name:"Tomato",soup_size:"small",price:4.56},{soup_name:"Corn",soup_size:"medium",price:6.72},{soup_name:"Chicken",soup_size:"large",price:9.92}]
+    div(class="container-fluid")
+    div(class="row")
+        each j,index in results 
+          div(class="col-sm-2" onclick=`buy(${index})`)  #{j.soup_name}  
+          div(class="col-sm-2" onclick=`buy(${index})`)  #{j.soup_size}
+          div(class="col-sm-2" onclick=`buy(${index})`)  #{j.price}
+script.
+    function buy(k)
+    {
+        alert(`You have purchased item ${k+1}`);
+    }
