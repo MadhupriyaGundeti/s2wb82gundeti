@@ -1,6 +1,15 @@
 extends layout
-
 block content
   h1= title
-  p Heroku Server #{title}
-  button(type="button", class="btn btn-secondary") Press me
+  p Madhupriya Gundeti #{title}
+  button(type="button", class="btn btn-secondary",onclick="moreClaps()") Press me
+  p
+  div(id="target") Clap for me 
+  script.
+   Clap_count=0;
+   function moreClaps(){
+   Clap_count=Clap_count+2;
+   document.getElementById("target").innerHTML=`Clap ${Clap_count} times`;
+   }
+
+  
